@@ -14,14 +14,6 @@
 	{/each}
 </ul>
 
-<ul>
-	{#each zadania as zadanie}
-		<li class:wykonane={zadanie.wykonane}>
-			{zadanie.nazwa}
-		</li>
-	{/each}
-</ul>
-
 <style>
 	.wykonane {
 		text-decoration: line-through;
