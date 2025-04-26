@@ -1,14 +1,30 @@
 <script>
-    export let name = "Svelte";
+	let zadania = [
+		{ id: 1, nazwa: 'Kupić mleko', wykonane: false },
+		{ id: 2, nazwa: 'Napisać raport', wykonane: true },
+		{ id: 3, nazwa: 'Posprzątać dom', wykonane: false }
+	];
 </script>
 
-<style>
-    h1 {
-        color: #ff3e00;
-        font-family: Arial, sans-serif;
-    }
-</style>
+<ul>
+	{#each zadania as zadanie}
+		<li class:wykonane={zadanie.wykonane}>
+			{zadanie.nazwa}
+		</li>
+	{/each}
+</ul>
 
-<main>
-    <h1>Hejka, {name}!</h1>
-</main>
+<ul>
+	{#each zadania as zadanie}
+		<li class:wykonane={zadanie.wykonane}>
+			{zadanie.nazwa}
+		</li>
+	{/each}
+</ul>
+
+<style>
+	.wykonane {
+		text-decoration: line-through;
+		color: gray;
+	}
+</style>
