@@ -1,22 +1,27 @@
 <script>
-	let zadania = [
-		{ id: 1, nazwa: 'Kupić mleko', wykonane: false },
-		{ id: 2, nazwa: 'Napisać raport', wykonane: true },
-		{ id: 3, nazwa: 'Posprzątać dom', wykonane: false }
-	];
+	let a = 0;
+	let b = 0;
+	let znak = '=';
+	const specjalnyZnak = 'excuse me wtf?!'
+
+	$: {
+		if (a < b) {
+			znak = '<';
+		} else if (a === b) {
+			znak = '=';
+		} else if (a > b) {
+			znak = '>'
+		} else {
+			znak = specjalnyZnak;
+		}
+	}
 </script>
 
-<ul>
-	{#each zadania as zadanie}
-		<li class:wykonane={zadanie.wykonane}>
-			{zadanie.nazwa}
-		</li>
-	{/each}
-</ul>
+<p>a=<input placeholder="0" type="number" bind:value={a} /></p>
+<p>b=<input placeholder="0" type="number" bind:value={b} /></p>
 
-<style>
-	.wykonane {
-		text-decoration: line-through;
-		color: gray;
-	}
-</style>
+{#if znak != specjalnyZnak}
+	<p>{a} {znak} {b}</p>
+{:else}
+	<p>{znak}</p>
+{/if}
