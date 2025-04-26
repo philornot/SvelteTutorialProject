@@ -16,7 +16,7 @@
 		}
 	}
 </script>
-
+<h1>Numero Porównywaczo Inator</h1>
 <p>a=<input placeholder="0" type="number" bind:value={a} /></p>
 <p>b=<input placeholder="0" type="number" bind:value={b} /></p>
 
